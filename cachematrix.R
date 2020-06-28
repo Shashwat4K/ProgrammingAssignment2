@@ -2,13 +2,16 @@
 # Auxiliary function which calculates and returns inverse of a matrix
 calculateInverse <- function(mat) {
     # Using solve() to calculate matrix inverse
-    # First check if the determinant is 0
+    # First check if the matrix is square or not
     if(nrow(mat) != ncol(mat)) {
         return(NaN) # Return NaN if the matrix is not square.
-    } else if(det(mat) == 0) {
+    }
+    # Then check whether its determinant is 0 or not 
+    else if(det(mat) == 0) {
         return(NaN)  # Return NaN if determinant is 0. 
                      # As the matrix is not invertible
     }
+    # If the matrix is square and invertible, calculate the inverse
     solve(mat)
 }
 
